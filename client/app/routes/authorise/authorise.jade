@@ -1,0 +1,14 @@
+.container.w-xxl.w-auto-xs(ng-init='App.app.settings.container = false;')
+  .hide.h2.wrapper Authorize Application
+  h3.text-danger.wrapper(ng-if='Authorise.error') {{Authorise.error}}
+  div.hide(ng-if='!Authorise.error')
+    .h4.wrapper
+      span.text-muted {{Authorise.app.name}}
+      span  would like permision to access your account
+    .line
+
+    .clearfix.m-b
+      button.font-bold.padder-lg.btn.btn-md.btn-default(type='button' ng-click='Authorise.done()') Deny
+      button.font-bold.padder-lg.btn.btn-md.btn-info.pull-right(type='button' ng-click='Authorise.done(true)') Allow
+  .hide.text-center
+    footer

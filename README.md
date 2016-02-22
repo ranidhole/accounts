@@ -1,1 +1,1 @@
-# Quarc Accounts
+# quarc.ui.manage
