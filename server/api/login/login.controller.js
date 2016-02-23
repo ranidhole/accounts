@@ -19,7 +19,7 @@ export function login(req, res){
     url: `${config.OAUTH_SERVER}${config.OAUTH_ENDPOINT}`,
     auth: {
       user: config.OAUTH_CLIENT_ID,
-      pass: config.OAUTH_SECRET_SECRET,
+      pass: config.OAUTH_CLIENT_SECRET,
     },
     form: {
       grant_type: 'authorization_code',
