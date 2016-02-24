@@ -22,11 +22,13 @@ export function login(req, res){
       pass: config.OAUTH_CLIENT_SECRET,
     },
     form: {
-      grant_type: 'authorization_code',
-      redirect_uri: `${config.OAUTH_REDIRECT_URI}`,
-      code: req.body.code,
+      grant_type: 'password',
+      username: req.body.username,
+      password: req.body.password,
     },
   };
+
+  console.log(options)
   request.post(options, function handleRes(err, apires, body) {
     if (err) return res.status(500).send(err);
     return res.status(apires.statusCode).send(body);

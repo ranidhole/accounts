@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('qui.components', [])
-
+// Todo oAuth Client Implementation
 angular
   .module('qui.core', [
     'qui.components',
@@ -9,6 +9,7 @@ angular
   ])
   .constant('MODULE_VERSION', '0.0.1')
   // this configs to initiated using provider
+  // Todo ng-constant implementation
   .constant('APP', {
     apiServer: '//api.quezx.dev',
     accountsServer: '//accounts.quezx.dev',
