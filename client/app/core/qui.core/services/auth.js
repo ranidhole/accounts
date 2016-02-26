@@ -1,16 +1,11 @@
 angular.module('qui.core')
   // Depending on constant: AUTH_EVENTS
-  .factory('Auth', [
-    '$http',
-    '$q',
-    'Session',
-    'APP',
-    function Auth($http, $q, Session, APP) {
+  .factory('Auth',
+    function Auth($http, $q, Session, URLS) {
       const authService = {};
       let refreshingToken = false;
 
       authService.login = function login(credentials) {
-        console.log("credentials",credentials)
         return $http
           .post('/api/login', credentials, { ignoreAuthModule: true })
           .then(
@@ -37,15 +32,15 @@ angular.module('qui.core')
             { ignoreAuthModule: true }
           )
           .then(function tokenRefreshed(response) {
-            Session.create('oauth', response.data);
-            refreshingToken = false; // reset refresh_token reuqest tracker flag
-            return response.data;
-          },
+              Session.create('oauth', response.data);
+              refreshingToken = false; // reset refresh_token reuqest tracker flag
+              return response.data;
+            },
 
-          function tokenRefreshError(response) {
-            refreshingToken = false; // reset refresh_token reuqest tracker flag
-            return $q.reject(response.data);
-          });
+            function tokenRefreshError(response) {
+              refreshingToken = false; // reset refresh_token reuqest tracker flag
+              return $q.reject(response.data);
+            });
       };
 
       authService.logout = function logout() {
@@ -84,13 +79,13 @@ angular.module('qui.core')
       authService.setSessionData = function gInfo() {
         return $q.all([
           $http
-            .get(APP.apiServer + '/api/users/me')
+            .get(URLS.QUARC_API + '/users/me')
             .then(function userinfoSuccess(response) {
               return Session.create('userinfo', response.data);
             }),
 
           $http
-            .get(APP.apiServer + '/api/users/states')
+            .get(URLS.QUARC_API + '/users/states')
             .then(function statesSuccess(response) {
               return Session.create('states', response.data);
             }),
@@ -98,5 +93,4 @@ angular.module('qui.core')
       };
 
       return authService;
-    },
-  ]);
+    });

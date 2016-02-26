@@ -3,7 +3,7 @@
 
 angular.module('uiGenApp.constants', [])
 
-.constant('appConfig', {userRoles:['guest','user','admin']})
+.constant('QCONFIG', {userRoles:['guest','user','admin']})
 
 ;
 })(angular);

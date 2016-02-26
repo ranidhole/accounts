@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('uiGenApp')
-  .service('QuarcService', function ( APP_CONFIG, Page, Session, User, oAuthorise) {
+  .service('QuarcService', function ( QCONFIG, Page, Session, User, oAuthorise) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     return {

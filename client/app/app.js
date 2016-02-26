@@ -8,21 +8,12 @@ angular
     'http-auth-interceptor',
   ])
   .constant('MODULE_VERSION', '0.0.1')
-  // this configs to initiated using provider
-  // Todo ng-constant implementation
-  .constant('APP', {
-    apiServer: '//api.quezx.dev',
-    accountsServer: '//accounts.quezx.dev',
-    hireServer: '//hire.quezx.dev',
-    partnerServer: '//partner.quezx.dev',
-    hireLogin: '//accounts.quezx.dev/authorise?client_id=hirequezx&response_type=code&' +
-    'redirect_uri=http://hire.quezx.dev/access/oauth&state=yo',
-    partnerLogin: '//accounts.quezx.dev/authorise?client_id=partnerquezx&response_type=code&' +
-    'redirect_uri=http://partner.quezx.dev/access/oauth&state=yo',
-  })
+
 
 
 angular.module('uiGenApp', [
+  'uiGenApp.urls',
+  'uiGenApp.constants',
   'qui.core',
   'ngAnimate',
   'ui.router',
@@ -31,9 +22,8 @@ angular.module('uiGenApp', [
   'chart.js',
   'restangular'
 ])
-  .constant('APP_CONFIG',{QUARC_API_URL: 'https://api.cloud.quezx.com/api'})
-  .config(function($urlRouterProvider, $locationProvider,RestangularProvider,APP_CONFIG) {
-    RestangularProvider.setBaseUrl(APP_CONFIG.QUARC_API_URL);
+  .config(function($urlRouterProvider, $locationProvider,RestangularProvider,QCONFIG) {
+    RestangularProvider.setBaseUrl(QCONFIG.QUARC_API);
     $urlRouterProvider
       .otherwise('/');
 

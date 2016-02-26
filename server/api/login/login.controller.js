@@ -28,7 +28,7 @@ export function login(req, res){
     },
   };
 
-  console.log(options)
+  console.log("ssssss",options)
   request.post(options, function handleRes(err, apires, body) {
     if (err) return res.status(500).send(err);
     return res.status(apires.statusCode).send(body);
@@ -40,7 +40,7 @@ export function refresh(req, res){
     url: `${config.OAUTH_SERVER}${config.OAUTH_ENDPOINT}`,
     auth: {
       user: config.OAUTH_CLIENT_ID,
-      pass: config.OAUTH_SECRET_SECRET,
+      pass: config.OAUTH_CLIENT_SECRET,
     },
     form: {
       grant_type: 'refresh_token',
@@ -59,7 +59,7 @@ export function logout(req, res){
     url: `${config.OAUTH_SERVER}${config.OAUTH_ENDPOINT}/${req.body.access_token}`,
     auth: {
       user: config.OAUTH_CLIENT_ID,
-      pass: config.OAUTH_SECRET_SECRET,
+      pass: config.OAUTH_CLIENT_SECRET,
     },
   };
 
