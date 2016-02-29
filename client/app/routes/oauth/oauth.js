@@ -19,6 +19,12 @@ angular.module('uiGenApp')
         controller: 'LogoutCtrl',
         controllerAs: 'Logout'
       })
+      .state('logout', {
+        url: '/logout',
+        templateUrl: 'app/routes/oauth/logout/logout.html',
+        controller: 'LogoutCtrl',
+        controllerAs: 'Logout'
+      })
       .state('oauth.forgotpass', {
         url: '/forgotpass',
         templateUrl: 'app/routes/oauth/forgotpass/forgotpass.html',

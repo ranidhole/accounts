@@ -25,7 +25,7 @@ angular.module('uiGenApp', [
   .config(function($urlRouterProvider, $locationProvider,RestangularProvider,QCONFIG) {
     RestangularProvider.setBaseUrl(QCONFIG.QUARC_API);
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/oauth/signin');
 
     $locationProvider.html5Mode(true);
   });

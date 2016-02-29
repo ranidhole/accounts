@@ -29,7 +29,7 @@
     <!--[if lt IE 7]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+<!--Todo: cross check markups with previous accounts templates-->
     <!-- Add your site or application content here -->
     <div id="app" ng-class="{
     'app-header-fixed':true,
@@ -38,9 +38,9 @@
     'app-aside-dock':App.app.settings.asideDock,
     'container':App.app.settings.container      }" class="app">
       <!--<header>-->
-        <navbar class="app-header navbar"></navbar> <!--<div ng-include="'html/blocks/header.html'" class="app-header navbar"></div>-->
+        <!-- Todo: navbar code not yet updated
+        <navbar class="app-header navbar"></navbar> &lt;!&ndash;<div ng-include="'html/blocks/header.html'" class="app-header navbar"></div>&ndash;&gt;-->
       <!--</header>-->
-      <aside ng-class="{    'off-screen': App.app.settings.offScreen,  }" class="app-aside hidden-xs {{App.app.settings.asideColor}}"></aside>
       <content>
         <div class="app-content">
           <div ui-butterbar=""></div>
