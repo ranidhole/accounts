@@ -21,7 +21,7 @@ angular.module('uiGenApp')
 
         if (Session.isAuthenticated() && (next.name === 'oauth.signin')) {
           event.preventDefault();
-          $state.go('app.home');
+          $state.go('home');
         }
       });
 
